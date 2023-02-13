@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+
+<head>
+    <title>Update appointment:</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+
+</head>
+
+<body>
+    <section class="content-header">
+        <h1>Update appointment</h1>
+    </section>
+
+    <div class="content">
+
+        <div class="container-fluid">
+
+            <form action="/updateApp" method="post">
+                <div class="col-sm-12">
+                    <div class="col-sm-3">
+                        <input type="text" name="appointment_id" placeholder="enter appointment_id"
+                            class="form-control ">
+                    </div>
+                    <div class="col-sm-9"> </div>
+                </div>
+                <div class="col-sm-12">
+                    <div class="col-sm-3">
+                        <input type="text" name="patient_id" placeholder="enter patient_id" class="form-control ">
+                    </div>
+                    <div class="col-sm-9"> </div>
+                </div>
+                <div class="col-sm-12">
+                    <div class="col-sm-3">
+                        <input type="text" name="doctor_id" placeholder="enter doctor_id"
+                            class="form-control col-md-3">
+                    </div>
+                </div>
+                <div class="col-sm-12">
+                    <div class="col-md-3">
+                        <input type="text" name="booked_date" placeholder="enter booked_date"
+                            class="form-control col-md-3">
+                    </div>
+                </div>
+                <div class="col-sm-12">
+                    <div class="col-md-3">
+                        <input type="text" name="slot" placeholder="enter the slot "
+                            class="form-control col-md-3">
+                    </div>
+                </div>
+                <div class="col-sm-12">
+                    <div class="col-md-3">
+                        <input type="text" name="patient_desc" placeholder="enter the patient description "
+                            class="form-control col-md-3">
+                    </div>
+                </div>
+                <div class="col-sm-12">
+                    <div class="col-md-3">
+                        <input type="text" name="prescription" placeholder="enter the prescription "
+                            class="form-control col-md-3">
+                    </div>
+                </div>
+                
+                <div class="col-sm-12">
+                    <div class="col-md-3">
+                        <input type="submit" class="form-control btn-primary col-md-3" value="Save">
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Dashboard</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="/assets/index.css">
+        
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+<!--table links and scripts-->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto|Varela+Round|Open+Sans">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <!--chartjs bootstrap necessary links and scripts-->
+        
+       
+    <script>$(function () {
+            $('[data-toggle="tooltip"]').tooltip();
+        });</script>
+        
+</head>
+
+<body>
+<!--script for chartjs-->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
+
+    <nav class="navbar navbar-inverse visible-xs">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                    <a class="navbar-brand" href="#">Logo</a>
+
+            </div>
+            <div class="collapse navbar-collapse" id="myNavbar">
+                
+                <ul class="nav navbar-nav">
+                    <li class="active"><a href="#">Dashboard</a></li>
+                    
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container-fluid">
+        <div class="row content">
+            <div class="col-sm-3 sidenav hidden-xs">
+               <div class="logo"><img src="/images/logo.png" alt=""></div> 
+   
+
+                <ul class="nav nav-pills nav-stacked">
+                    <li class="active"><a href="#section1">Dashboard</a></li>
+                    
+                </ul><br>
+            </div>
+            <br>
+
+            <div class="col-sm-9">
+                <div style="color:#ffffff;font-weight: bold;background-color: #0000FF;width:fit-content;position:relative;margin-left:1010px;padding:2px;border-radius: 5px;"><%=currentDate%></div>
+                <div class="well">
+                    <div class="flex1">
+                        <div class="text1"><h4>Welcome ...</h4>
+                    <p>You have .. patients remaining today!</p></div>
+                    <div class="img2"><img src="/images/image2.png" alt=""></div>
+                        
+                </div>
+                    
+                </div>`
+
+                <div class="row">
+                
+                    <div class="col-lg-6 col-md-6 p-2">
+                        <div class="card border-primary rounded-0">
+                            <div class="card-header bg-primary rounded-0">
+                                <h5 class="card-title text-white text-center mb-1">Total Patients</h5>
+                            </div>
+                            <div class="card-body">
+                                <h1 class="display-4 font-weight-bold text-dark text-center">
+                                    <%= patientCount %>
+                                </h1>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="col-lg-6 col-md-6 p-2">
+                        <div class="card border-success rounded-0">
+                            <div class="card-header bg-primary rounded-0">
+                                <h5 class="card-title text-white text-center mb-1">Total Appointments</h5>
+                            </div>
+                            <div class="card-body">
+                                <h1 class="display-4 font-weight-bold text-dark text-center">
+                                    <%= appointmentCount %>
+                                </h1>
+                            </div>
+                        </div>
+                    </div>
+                
+                
+                </div>
+                
+
+         <!--chartjs chart-->
+        <canvas id="myChart" style="width:100%;max-width:600px"></canvas>
+        
+        <script>
+            var xValues = ["men", "women"];
+            var yValues = [<%=maleCount %>,<%=femaleCount %>];
+            var barColors = [
+                "#6558a5",
+                "#09aace",
+            ];
+   
+            new Chart("myChart", {
+                type: "doughnut",
+                data: {
+                    labels: xValues,
+                    datasets: [{
+                        backgroundColor: barColors,
+                        data: yValues
+                    }]
+                },
+                options: {
+                    title: {
+                        fontColor:"#000000",
+                        fontSize:20,
+                        display: true,
+                        text: "men vs women statistics"
+                    },
+                      scales: {
+                        x: {
+                            ticks: {
+                                color: 'black'
+                            }
+                        }
+                    }
+                        
+                    },
+                }
+        );
+        
+        
+        </script> 
+
+        
+
+<!-- Responsive table patients -->
+<div class="table-responsive">
+    <table class="table m-0">
+        <thead>
+            <tr>
+                <th scope="col">patient_id</th>
+                <th scope="col">Name</th>
+                <th scope="col">gender</th>
+                <th scope="col">age</th>
+                <th scope="col">address</th>
+                <th scope="col">phone</th>
+                <th scope="col">email</th>
+                <th scope="col">medical_history</th>
+                <th scope="col">
+                    <!-- Call to action buttons -->
+                    <ul class="list-inline m-0">
+                        <li class="list-inline-item">
+                            <a style="text-decoration: none;color:#f1f1f1" href="/insert"><button
+                                    class="btn btn-primary btn-sm rounded-0" type="button" data-toggle="tooltip" data-placement="top"
+                                    title="Add"><i class="fa fa-table"></a></i></button></a>
+                        </li>
+                        <li class="list-inline-item">
+                            <a style="text-decoration: none;color:#f1f1f1" href="/update"><button
+                                    class="btn btn-success btn-sm rounded-0" type="button" data-toggle="tooltip" data-placement="top"
+                                    title="Edit"><i class="fa fa-edit"></i></button></a>
+                
+                        </li>
+                        <li class="list-inline-item">
+                            <a style="text-decoration: none;color:#f1f1f1" href="/delete"><button
+                                    class="btn btn-danger btn-sm rounded-0" type="button" data-toggle="tooltip" data-placement="top"
+                                    title="Delete"><i class="fa fa-trash"></i></button></a>
+                
+                        </li>
+                    </ul>
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <% patient.forEach(patient=>{%>
+            <tr>
+                <td>
+                    <%=patient.patient_id%>
+                </td>
+                <td>
+                    <%=patient.Name%>
+                </td>
+                <td>
+                    <%=patient.gender%>
+                </td>
+                <td>
+                    <%=patient.age%>
+                </td>
+                <td>
+                    <%=patient.address%>
+                </td>
+                <td>
+                    <%=patient.phone%>
+                </td>
+                <td>
+                    <%=patient.email%>
+                </td>
+                <td>
+                    <%=patient.medical_history%>
+                </td>
+
+                
+            </tr>
+            <%}) %>
+                </tr>
+        </tbody>
+    </table>
+
+            </div>
+    <!-- Responsive table appointments -->
+    <div class="table-responsive">
+        <table class="table m-0">
+            <thead>
+                <tr>
+                    <th scope="col">appointment_id</th>
+                    <th scope="col">patient_id</th>
+                    <th scope="col">doctor_id</th>
+                    <th scope="col">booked_date</th>
+                    <th scope="col">slot</th>
+                    <th scope="col">patient_desc</th>
+                    <th scope="col">prescription</th>
+                    <th scope="col">
+                        <!-- Call to action buttons -->
+                        <ul class="list-inline m-0">
+                            <li class="list-inline-item">
+                                <a style="text-decoration: none;color:#f1f1f1" href="/insertApp"><button
+                                        class="btn btn-primary btn-sm rounded-0" type="button" data-toggle="tooltip" data-placement="top"
+                                        title="Add"><i class="fa fa-table"></a></i></button></a>
+                            </li>
+                            <li class="list-inline-item">
+                                <a style="text-decoration: none;color:#f1f1f1" href="/updateApp"><button
+                                        class="btn btn-success btn-sm rounded-0" type="button" data-toggle="tooltip" data-placement="top"
+                                        title="Edit"><i class="fa fa-edit"></i></button></a>
+                    
+                            </li>
+                            <li class="list-inline-item">
+                                <a style="text-decoration: none;color:#f1f1f1" href="/deleteApp"><button
+                                        class="btn btn-danger btn-sm rounded-0" type="button" data-toggle="tooltip" data-placement="top"
+                                        title="Delete"><i class="fa fa-trash"></i></button></a>
+                    
+                            </li>
+                        </ul>
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <% appointments.forEach(appointments=>{%>
+                <tr>
+                    <td>
+                        <%=appointments.appointment_id%>
+                    </td>
+                    <td>
+                        <%=appointments.patient_id%>
+                    </td>
+                    <td>
+                        <%=appointments.doctor_id%>
+                    </td>
+                    <td>
+                        <%=appointments.booked_date.toLocaleDateString('el-GR')%>
+                    </td>
+                    <td>
+                        <%=appointments.slot%>
+                    </td>
+                    <td>
+                        <%=appointments.patient_desc%>
+                    </td>
+                    <td>
+                        <%=appointments.prescription%>
+                    </td>
+                    
+    
+                    
+                </tr>
+                <%}) %>
+                    </tr>
+            </tbody>
+        </table>
+    
+    </div>
+    
+
+
+
+        </div>
+    </div>
+    
+</body>
+
+
+    
+</html>

@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <section class="content-header">
+        <h1>UPDATE PATIENT DATA:</h1>
+    </section>
+    
+    <div class="content">
+    
+        <div class="container-fluid">
+    
+            <form action="/update" method="post">
+            <div class="col-sm-12">
+                <div class="col-sm-3">
+                    <input type="text" name="patient_id" placeholder=" patient_id" class="form-control ">
+                </div>
+                <div class="col-sm-9"> </div>
+            </div>
+                <div class="col-sm-12">
+                    <div class="col-sm-3">
+                        <input type="text" name="Name" placeholder=" name" class="form-control ">
+                    </div>
+                    <div class="col-sm-9"> </div>
+                </div>
+                <div class="col-sm-12">
+                    <div class="col-sm-3">
+                        <input type="text" name="gender" placeholder="gender"
+                            class="form-control col-md-3">
+                    </div>
+                </div>
+                <div class="col-sm-12">
+                    <div class="col-md-3">
+                        <input type="text" name="age" placeholder="age" class="form-control col-md-3">
+                    </div>
+                </div>
+                <div class="col-sm-12">
+                    <div class="col-md-3">
+                        <input type="text" name="address" placeholder="address"
+                            class="form-control col-md-3">
+                    </div>
+                </div>
+                <div class="col-sm-12">
+                    <div class="col-md-3">
+                        <input type="text" name="phone" placeholder="phone number"
+                            class="form-control col-md-3">
+                    </div>
+                </div>
+                <div class="col-sm-12">
+                    <div class="col-md-3">
+                        <input type="email" name="email" placeholder="email"
+                            class="form-control col-md-3">
+                    </div>
+                </div>
+                <div class="col-sm-12">
+                    <div class="col-md-3">
+                        <input type="text" name="medical_history" placeholder="medical history"
+                            class="form-control col-md-3">
+                    </div>
+                </div>
+                <div class="col-sm-12">
+                    <div class="col-md-3">
+                        <input type="submit" class="form-control btn-success col-md-3" value="Update">
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+    </div>
+</body>
+</html>

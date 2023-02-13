@@ -1,0 +1,43 @@
+.logo img{
+    width:180px;
+}
+
+.flex1{
+    display:flex;
+    justify-content: space-between;
+    align-items: center;
+    width:60%;
+}
+.img2 img {
+    width:200px;
+}
+ /* Set height of the grid so .sidenav can be 100% (adjust as needed) */
+ .row.content {
+     height: 100vh;
+ }
+
+ /* Set gray background color and 100% height */
+ .sidenav {
+     box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
+     height: 100%;
+ }
+ nav {
+    height:300%;
+ }
+
+ /* On small screens, set height to 'auto' for the grid */
+ @media screen and (max-width: 767px) {
+     .row.content {
+         height: auto;
+     }
+ }
+ .text1 h4{
+    font-size: 4rem;
+        font-weight: bold;
+ }
+ .text1 p{
+    font-size:1.6rem;
+ }
+ .well {
+    background: #24FCDC !important;
+ }
